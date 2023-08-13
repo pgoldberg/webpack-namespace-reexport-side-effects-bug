@@ -6,6 +6,8 @@ In this example, `foo.js` re-exports `bar.js` via a namespace re-export (`export
 
 Because this is a small bundle with small modules, the module order is pretty much guaranteed to be the same between runs. In order to repro the issue, I created two small plugins to ensure module orders that replicate the bug (`EnsureOrderForTreeShakingPlugin` and `WrongOrderForTreeShakingPlugin`).
 
+To run webpack and repro the bug, you can run `pnpm start`.
+
 #### When `foo.js` is ordered before `bar.js`, the `optimizeDependencies` hook callback in `SideEffectsFlagPlugin`:
 1. Deactivates the connection between `app.js` and `foo.js` and creates a new one between `app.js` and `bar.js` (when processing `foo.js`'s `incomingConnections`)
 2. Deactivates the new connection between `app.js` and `bar.js` and creates a new one between `app.js` and `baz.js` (when processing `bar.js`'s incomingConnections)
