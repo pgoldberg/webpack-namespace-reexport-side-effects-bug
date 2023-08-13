@@ -1,0 +1,11 @@
+{
+  "name": "webpack-namespace-reexport-side-effects-bug",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "rm -rf build && \"$npm_execpath\" exec webpack"
+  },
+  "devDependencies": {
+    "webpack": "5.88.2",
+    "webpack-cli": "5.1.4"
+  }
+}
